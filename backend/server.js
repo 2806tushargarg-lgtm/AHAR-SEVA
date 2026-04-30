@@ -4,8 +4,8 @@ import path from 'path';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import authRoutes from './routes/auth.routes.js';
-import foodRoutes from './routes/food.routes.js';
+import authRoutes from './backend/routes/auth.routes.js';
+import foodRoutes from './backend/routes/food.routes.js';
 
 dotenv.config();
 
@@ -61,6 +61,28 @@ app.use('/api/food', foodRoutes);
 
 async function startServer() {
   console.log('Starting server initialization...');
+
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('Initializing Vite in development mode...');
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: 'spa',
+    });
+    app.use(vite.middlewares);
+    console.log('Vite middleware integrated.');
+  } else {
+    console.log('Running in production mode...');
+    // ❌ REMOVE dist serving completely
+    // Backend will only serve APIs
+  }
+
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server fully initialized and running at http://0.0.0.0:${PORT}`);
+  });
+}
+
+/*async function startServer() {
+  console.log('Starting server initialization...');
   if (process.env.NODE_ENV !== 'production') {
     console.log('Initializing Vite in development mode...');
     const vite = await createViteServer({
@@ -83,4 +105,4 @@ async function startServer() {
   });
 }
 
-startServer();
+startServer();*/
