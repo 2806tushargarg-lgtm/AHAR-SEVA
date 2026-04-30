@@ -81,6 +81,8 @@ async function startServer() {
   });
 }
 
+startServer();
+
 /*async function startServer() {
   console.log('Starting server initialization...');
   if (process.env.NODE_ENV !== 'production') {
