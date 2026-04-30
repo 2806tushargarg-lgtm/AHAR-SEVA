@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useState } from 'react';
-import Navbar from './components/Navbar';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import HotelDashboard from './pages/HotelDashboard';
-import NGODashboard from './pages/NGODashboard';
+import Navbar from './components/Navbar.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+import HotelDashboard from './pages/HotelDashboard.jsx';
+import NGODashboard from './pages/NGODashboard.jsx';
 
 export default function App() {
   const [user, setUser] = useState(() => {
