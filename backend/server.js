@@ -4,8 +4,8 @@ import path from 'path';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import authRoutes from './backend/routes/auth.routes.js';
-import foodRoutes from './backend/routes/food.routes.js';
+import authRoutes from './routes/auth.routes.js';
+import foodRoutes from './routes/food.routes.js';
 
 dotenv.config();
 
