@@ -11,7 +11,7 @@ export default function Navbar({ user, logout }) {
 
   useEffect(() => {
     const checkHealth = () => {
-      fetch('/api/health')
+      fetch('https://ahar-seva-backend.onrender.com/api/health')
         .then(res => res.json())
         .then(data => {
           setDbStatus(data.db);
