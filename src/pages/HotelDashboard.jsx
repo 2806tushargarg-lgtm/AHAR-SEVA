@@ -11,7 +11,7 @@ export default function HotelDashboard({ token }) {
 
   const fetchFoods = async () => {
     try {
-      const res = await fetch('/api/food/my-food', {
+      const res = await fetch('https://ahar-seva-backend.onrender.com/api/food/my-food', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -31,7 +31,7 @@ export default function HotelDashboard({ token }) {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await fetch('/api/food/add-food', {
+      const res = await fetch('https://ahar-seva-backend.onrender.com/api/food/add-food', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

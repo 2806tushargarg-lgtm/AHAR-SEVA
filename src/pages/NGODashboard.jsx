@@ -9,7 +9,7 @@ export default function NGODashboard({ token }) {
 
   const fetchAvailableFood = async () => {
     try {
-      const res = await fetch('/api/food/all-food', {
+      const res = await fetch('https://ahar-seva-backend.onrender.com/api/food/all-food', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -28,7 +28,7 @@ export default function NGODashboard({ token }) {
   const handleAccept = async (foodId) => {
     setAcceptingId(foodId);
     try {
-      const res = await fetch(`/api/food/accept-food/${foodId}`, {
+      const res = await fetch(`https://ahar-seva-backend.onrender.com/api/food/accept-food/${foodId}`, {
         method: 'POST',
         headers: { 
           'Authorization': `Bearer ${token}`
