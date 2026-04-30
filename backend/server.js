@@ -42,7 +42,7 @@ if (MONGODB_URI) {
 }
 
 // API Routes
-app.get('https://ahar-seva-backend.onrender.com/api/health', (req, res) => {
+app.get('/api/health', (req, res) => {
   const states = ['disconnected', 'connected', 'connecting', 'disconnecting'];
   const uri = process.env.MONGODB_URI || '';
   const isPlaceholder = uri.includes('<password>') || uri.includes('username');
@@ -56,8 +56,8 @@ app.get('https://ahar-seva-backend.onrender.com/api/health', (req, res) => {
   });
 });
 
-app.use('https://ahar-seva-backend.onrender.com/api/auth', authRoutes);
-app.use('https://ahar-seva-backend.onrender.com/api/food', foodRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/food', foodRoutes);
 
 async function startServer() {
   console.log('Starting server initialization...');
